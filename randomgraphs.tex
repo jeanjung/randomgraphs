@@ -1,20 +1,25 @@
-\documentclass[draft]{beamer}
+% \documentclass[draft]{beamer}
+\documentclass[handout]{beamer}
 % \documentclass{beamer}
 
 \usepackage{amsmath,amssymb,amsthm}
+
+% tikz includes
 \usepackage{tikz}
 \usepackage{animate}
 \usetikzlibrary{decorations.pathreplacing}
+\tikzstyle{every mynode}=[circle, draw, fill=black!50, inner sep=0pt, minimum width=4pt]
 
+% beamer stuff
 \usetheme{AnnArbor}
 \usecolortheme{beaver}
 \usefonttheme{professionalfonts}
 \useinnertheme{rounded}
 \useoutertheme{infolines}
 
-\tikzstyle{every mynode}=[circle, draw, fill=black!50, inner sep=0pt, minimum width=4pt]
 
-
+\renewcommand{\emph}[1]{\textcolor{red}{#1}}
+\newcommand{\mycolor}{red}
 
 \title[Random Graphs]{Random Graphs and Zero-One Laws}
 \subtitle{Strange Logic}
@@ -338,10 +343,17 @@ first order property $A$ holds either almost surely or almost never.
   \item $p(n)=c/n$ does not satisfy the Zero-One Law.
   \pause
   \item other functions??
+		\pause
+	\item $p(n)$ threshold for $A$ $\Rightarrow$ $p(n)$ does not satisfy the Zero-One Law 
+		\pause
+	\item not all first-order properties have a threshold function 
 \end{itemize}
 
-\pause
-\emph{Note}: not all first-order properties have a threshold function.
+% \pause
+% \emph{Note 1}: 
+% 
+% \pause
+% \emph{Note 2}:
 \end{frame}
 
 
@@ -389,9 +401,9 @@ $v/e=5/7$ but the $K_4$ is a subgraph with ratio $v'/e'=2/3<v/e$, so the $K_4$ a
 			\hline
 			$n^{-2}$ & isolated vertices \\
 			$n^{-3/2}$ & paths of length $2$ \\
-			$n^{-1-1/k}$ & trees with $k+1$ vertices \\
+		\textcolor<2>{\mycolor}{$n^{-1-1/k}$} & \textcolor<2>{\mycolor}{trees with $k+1$ vertices} \\
 			$n^{-1}$ & triangles, cycles of every finite length, planarity \\
-			$n^{-v/e}$ & graphs with $e$ edges and $v$ vertices* \\
+			\textcolor<2>{\mycolor}{$n^{-v/e}$} & \textcolor<2>{\mycolor}{graphs with $e$ edges and $v$ vertices*} \\
 			$\ln{n}/n$ & connectedness
 		\end{tabular}
 	\end{table}
@@ -403,10 +415,62 @@ $v/e=5/7$ but the $K_4$ is a subgraph with ratio $v'/e'=2/3<v/e$, so the $K_4$ a
 
 
 
-\begin{frame}{}
+\begin{frame}{What happens in between $n^{-1-1/k}$ and $n^{-1-1/(k+1)}$?}
+	Fix $k$ and assume
+	$$n^{-1-\frac{1}{k}} \ll p(n) \ll n^{-1-\frac{1}{k+1}}$$
+
+	One can show that in $G(n,p(n))$ almost surely: 
+	\begin{itemize}
+		\item There are no components with $k+2$ (or more) vertices.
+		\item There are no cycles.
+		\item For every $r$, every tree with  $1,\ldots,k+1$ vertices appears (at least) $r$ times.
+	\end{itemize}
+
+	\pause
+	Consider the FO-theory $T$ of 1, 2, and 3. It has a unique countable model.
+
+	$\Rightarrow T$ is complete 
+
+	$\Rightarrow$ Zero-One Law for $G(n,p(n))$ 
+
+	\bigskip
+	\pause
+	similar statements hold if $n^{-1-\varepsilon}\ll p(n) \ll n^{-1}$ for all $\varepsilon>0$
+	or $n^{-1}\ll p(n) \ll n^{-1}\ln n$. 
 \end{frame}
-\begin{frame}{}
+
+\begin{frame}{Between the rationals \dots}
+	Already mentioned: $n^{-\alpha}$ is a threshold function for every rational $\alpha=a/b$,
+	since at $n^{-a/b}$ graphs with $a$ vertices and $b$ edges appear almost surely.
+	
+	\pause
+	\bigskip
+	\textbf{Main Theorem} [Shelah, Spencer]: For every \emph{irrational} $\alpha$ with $0<\alpha<1$
+	$p(n)=n^{-\alpha}$ satisfies a Zero-One Law, \mbox{i.e.}, in $G(n,n^{-\alpha})$ for every first-order $A$
+	$$\lim_{n\rightarrow\infty}\mu_n(A)=0\mathrm{\ or\ } 1$$
+
+	\pause
+	\begin{itemize}
+		\item theory $T_{\alpha}=\{A\mid \lim_{n\rightarrow\infty}\mu_n(A)=1\}$ is complete
+		\item no unique countable model
+		\item $T_{\alpha}$ is decidable (if $\alpha$ is)
+		\item $T_{\alpha_1}\neq T_{\alpha_2}$ for $\alpha_1\neq\alpha_2$
+	\end{itemize}
 \end{frame}
+
+
+\begin{frame}{Limiting probabilities}
+	What is the asymptotic probability of $A$ in $G(n,c/n)$?
+	\pause
+
+	\begin{itemize}
+		\item the limit always exists
+		\item can be expressed as a function of $c$, constants, addition, multiplication and exponentiation [Lynch]
+	\end{itemize}
+\end{frame}
+
+
+
 \begin{frame}{}
 \end{frame}
 
