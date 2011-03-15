@@ -369,7 +369,7 @@ Remember the expected number $X$ of triangles in $G(n,p)$ was $E(X)={n\choose 3}
   \item The expected number of copies is $\sim c\cdot n^v\cdot p^e$.
   \item If $p(n)\ll n^{-v/e}$, this goes to $0$ as $n$ grows
   \item If $p(n)\gg n^{-v/e}$, this goes to $\infty$ as $n$ grows\\
-Does this mean $H$ appears almost surely? --\pause \emph{No!}
+Does this mean $H$ appears almost surely? --\pause\ \emph{No!}
 \end{itemize}
 \begin{columns}
 \column{3cm}
@@ -460,18 +460,34 @@ $v/e=5/7$ but the $K_4$ is a subgraph with ratio $v'/e'=2/3<v/e$, so the $K_4$ a
 
 
 \begin{frame}{Limiting probabilities}
-	What is the asymptotic probability of $A$ in $G(n,c/n)$?
-	\pause
+	Assume that the Zero-One Law does not hold for $p(n)$.
 
+	\pause
 	\begin{itemize}
-		\item the limit always exists
-		\item can be expressed as a function of $c$, constants, addition, multiplication and exponentiation [Lynch]
+		\item Does the limit always exist? \\ \only<4->{\emph{[NonConvergence]}}
+		\item If not, is it possible to seperate the cases when the limit is $0$ or $1$? \only<3->{\emph{[NonSeperability]}}
+		\item If yes, what is the asymptotic probability of $A$ in $G(n,p(n))$? 
 	\end{itemize}
+
+	\only<5->{
+	Two examples:
+	\begin{itemize}
+		\item $p(n)=c/n$: limit always exists, limit is a function of $c$ using $c$, $+$, $*$, and $exp(.)$
+		\item $p(n)=n^{-1/3}$ limit does not always exist 
+	\end{itemize}
+	}
 \end{frame}
 
 
 
 \begin{frame}{}
+	\begin{center}
+		\LARGE{
+		\emph{
+		Thanks for your attention!
+		}
+		}
+	\end{center}
 \end{frame}
 
 
