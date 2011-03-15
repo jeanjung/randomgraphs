@@ -46,10 +46,10 @@
 \end{frame}
 
 \begin{frame}{Motivation}
-Given first-order sentence $\varphi$ and an integer $n>0$. 
+Given property $A$ and an integer $n>0$. 
 
 \begin{itemize}
-\item What is the probability that $\varphi$ holds in a \emph{random} structure with domain size $n$?
+\item What is the probability that $A$ holds in a \emph{random} structure with domain size $n$?
 \item What happens in the limit, \mbox{i.e.}, if $n\rightarrow\infty$?
 \end{itemize}
 
@@ -262,16 +262,30 @@ Proof: fix $x_1,\ldots,x_r$ and $y_1,\ldots,y_s$
     \item for every $B\notin T$: $\lim_{n\rightarrow\infty} \mu_n(B)=0$
     \item Completeness of $T$ yields: for every sentence $A$ we have
   $$\lim_{n\rightarrow\infty}\mu_n(A)=0\mathrm{\ or\ } 1$$
-    \pause
-    \item Also by completeness, the above theory $T$ equals
-      $$\{A\mid\lim_{n\rightarrow\infty}\mu_n(A)=1\}$$
-    \pause
+%     \item Also by completeness, the above theory $T$ equals
+%       $$\{A\mid\lim_{n\rightarrow\infty}\mu_n(A)=1\}$$
+%     \pause 
     \item Zero-One Law
+      \pause
+    \item $\textsc{PSpace}$-complete decision problem
+      \pause
+    \item \emph{Note:} we looked at an \textit{infinite} structure to say something about \textit{finite} structures
   \end{itemize}
 
 \end{frame}
 
 
+\begin{frame}{And now?}
+  There are two possible directions to continue:
+
+  \bigskip
+  \begin{enumerate}
+    \item consider variable edge probabibility: $G(n,p(n))$
+      \pause
+    \item consider different logics: higher-order, fixed-point, modal, \dots logics
+  \end{enumerate}
+  
+\end{frame}
 
 \begin{frame}{Revisiting the Property "Triangle-Free"}
   Remember: $G(n,p)$ and $A$="$G$ contains no triangle"
